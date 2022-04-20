@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <!-- https://www.youtube.com/watch?v=tEC4kqzNTnM -->
+</head>
+<body>
+    <nav>
+        <label class="logo">CodeX</label>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Hướng dẫn cơ bản</a></li>
+            <li><a href="#">Nâng cao</a></li>
+            <li><a href="#">Tập viết</a></li>
+            <li><a href="#">Feedback</a></li>
+        </ul>
+        <label id="icon">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+    </nav>
+    <main>
+        <div class="container">
+            <div class="featured-image">
+                <img src="./image/photo1.png" alt="" class="img">
+            </div>
+            <div class="row">
+                <div class="col-md-10 post">
+                    <div class="post-header">
+                        <div class="category-name">
+                            <a href="#">Category name</a>
+                        </div>
+                        <h1 class="title">Sinking fund là gì? Thiết lập cơ chế chủ động cho Sinking Fund</h1>
+                        <div class="center-divider"></div>
+                        <div class="author">posted of <span>January 9, 2022</span> by <span>Admin</span></div>
+                    </div>
+                    <div class="post-content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur aperiam quam soluta est rem! 
+                        Veniam et necessitatibus nostrum modi ipsam natus deserunt provident, velit harum vel! Harum cupiditate corrupti perferendis.
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="ads-card">
+                        <div class="ads-title"> 
+                            Liên hệ khách hàng
+                        </div>
+                        <div class="ads-content">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum molestias incidunt consequatur aut eaque sed
+                        </div>
+                    </div>
+                    <div class="ads-card">
+                        <div class="ads-title"> 
+                            Liên hệ khách hàng
+                        </div>
+                        <div class="ads-content">
+                            oluptates excepturi! Illo, ipsa a necessitatibus cum veniam, laudantium deleniti maxime at dolore unde mollitia?
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="same-category">
+                <div class="title">Bài viết cùng chuyên mục</div>
+                <div class="row">
+                    <a href="#" class="col-md-3 col-6 item">
+                        <div class="post-item">
+                            <img class="post-img" src="http://localhost/base-cms/base-cms/public/dist/img/photo1.png" alt="">
+                            <div class="post-title">Some text about me in culpa qui officia deserunt mollit anim</div>
+                        </div>
+                    </a>
+                    <a href="#" class="col-md-3 col-6 item">
+                        <div class="post-item">
+                            <img class="post-img" src="http://localhost/base-cms/base-cms/public/dist/img/photo1.png" alt="">
+                            <div class="post-title">Some text about me in culpa qui officia deserunt mollit anim</div>
+                        </div>
+                    </a>
+                    <a href="#" class="col-md-3 col-6 item">
+                        <div class="post-item">
+                            <img class="post-img" src="http://localhost/base-cms/base-cms/public/dist/img/photo1.png" alt="">
+                            <div class="post-title">Some text about me in culpa qui officia deserunt mollit anim</div>
+                        </div>
+                    </a>
+                    <a href="#" class="col-md-3 col-6 item">
+                        <div class="post-item">
+                            <img class="post-img" src="http://localhost/base-cms/base-cms/public/dist/img/photo1.png" alt="">
+                            <div class="post-title">Some text about me in culpa qui officia deserunt mollit anim</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="site-name">BaseCMS.com </div>
+            <div class="slogan">Không chỉ là sự chia sẽ mà còn là những giá trị tốt đẹp nhất!</div>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#icon').click(function(){
+                $('ul').toggleClass('show');
+            })
+        })
+    </script>
+</body>
+</html>
