@@ -9,4 +9,6 @@ class Setting extends Model
     protected $fillable = ['key', 'value'];
     
     protected $dates = ['created_at'];
+
+    public $timestamps = false;
 }

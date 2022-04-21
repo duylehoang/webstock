@@ -10,7 +10,6 @@ body{
 a {
     text-decoration: none;
 }
-
 /*------------------------ Navigation  ----------------------*/
 nav{
     height: 70px;
@@ -59,48 +58,10 @@ nav #icon {
     display: none;
 }
 
-@media (max-width: 1048px) {
-    .logo{
-        font-size: 32px;
-        padding-left: 60px;
-    }
-    nav ul {
-        margin-right: 20px;
-    }
-    nav a{
-        font-size: 17px;
-    }
-}
-
-@media (max-width:909px) {
-    nav #icon {
-        display: block;
-    }
-    nav ul {
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        background-color: #2f3640;
-        top: 70px;
-        left: -100%;
-        text-align: center;
-        transition:  all 0.5s;
-    }
-    nav li{
-        display: block;
-        margin: 50px 0;
-        line-height: 30px;
-    }
-    nav a{
-        font-size: 16px;
-    }
-    nav a.active, nav a:hover{
-        border: none;
-        color: #3498db;
-    }
-    nav ul.show{
-        left: 0;
-    }
+.container {
+    width: 80%;
+    border-left: 1px solid #dee2e6;
+    border-right: 1px solid #dee2e6;
 }
 
 /*------------------------- Body  ------------------*/
@@ -108,7 +69,9 @@ main {
     margin-top: 80px;
     padding-bottom: 20px;
 }
-
+.main-content {
+    padding: 0 1rem;
+}
 .featured-image img {
     width: 100%;
     max-height: 20rem;
@@ -119,6 +82,13 @@ main {
     text-align: center;
 }
 
+.post-content{
+    min-height: 25rem;
+    width: 98%;
+}
+.category-name {
+    margin-bottom: 0.8rem;
+}
 .category-name a {
     color: #2a75a7;
     text-transform: uppercase;
@@ -141,15 +111,20 @@ h1.title {
 }
 .author {
     text-transform: uppercase;
+    margin-bottom: 1rem;
 }
 .author span {
     color: #2a75a7;
 }
-
+.same-category {
+    padding: 0 1rem;
+}
 .same-category .title{
     text-transform: uppercase;
     color: #318585;
     margin-bottom: 1rem;
+    text-decoration: underline;
+    text-decoration-color: #318585;
 }
 .same-category .item {
     padding: 7px;
@@ -166,7 +141,7 @@ h1.title {
     padding: 5px 0;
 }
 .ads-card {
-    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
 }
 .ads-card .ads-title {
     color: #fff;
@@ -277,5 +252,67 @@ div.icon {
 @media only screen and (max-width: 700px){
     #image-viewer .modal-content {
         width: 100%;
+    }
+}
+
+/*---------------- Reponsive ---------------*/
+
+@media (max-width: 1048px) {
+    .container {
+        width: 90%;
+        border-left: none;
+        border-right: none;
+    }
+    .logo{
+        font-size: 32px;
+        padding-left: 60px;
+    }
+    nav ul {
+        margin-right: 20px;
+    }
+    nav a{
+        font-size: 17px;
+    }
+    .main-content {
+        padding: 0 0rem;
+    }
+}
+
+@media (max-width:909px) {
+    .container {
+        width: 90%;
+        border-left: none;
+        border-right: none;
+    }
+    nav #icon {
+        display: block;
+    }
+    nav ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: #2f3640;
+        top: 70px;
+        left: -100%;
+        text-align: center;
+        transition:  all 0.5s;
+    }
+    nav li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav a{
+        font-size: 16px;
+    }
+    nav a.active, nav a:hover{
+        border: none;
+        color: #3498db;
+    }
+    nav ul.show{
+        left: 0;
+    }
+    .main-content {
+        padding: 0 0rem;
     }
 }

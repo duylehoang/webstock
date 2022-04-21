@@ -6,13 +6,13 @@
 @section('content')
 <main>
     <div class="container">
-        @if($post->featured_image)
-            <div class="featured-image">
-                <img src="{{asset('upload/posts/'. $post->featured_image)}}" alt="" class="img">
-            </div>
-        @endif
-        <div class="row">
+        <div class="row main-content">
             <div class="col-md-9 post">
+                @if($post->featured_image)
+                    <div class="featured-image">
+                        <img src="{{asset('upload/posts/'. $post->featured_image)}}" alt="" class="img">
+                    </div>
+                @endif
                 <div class="post-header">
                     <div class="category-name">
                         <a href="{{route('sharing')}}">#Chia sẻ</a>
@@ -49,7 +49,7 @@
                 <div class="title">Bài viết cùng chuyên mục</div>
                 <div class="row">
                     @foreach ($otherPosts as $item)
-                        <a href="{{ route('knowledge.article', $item->slug) }}" class="col-md-3 col-6 item">
+                        <a href="{{ route('sharing.article', $item->slug) }}" class="col-md-3 col-6 item">
                             <div class="post-item">
                                 <img class="post-img" src="{{ load_img('upload/posts', $item->featured_image) }}" alt="{{ $item->title }}">
                                 <div class="post-title">{{$item->title}}</div>

@@ -12,13 +12,12 @@
             </div>
         </div>
         <div class="table-responsive">
-            <table class="table table-striped table-bordered table-sm">
+            <table class="table table-striped table-bordered table-sm" id="post_table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Title</th>
                         <th scope="col">Slug</th>
-                        <th scope="col">Type</th>
                         <th scope="col">Category</th>
                         <th scope="col">Featured Image</th>
                         <th scope="col">Sort Order</th>
@@ -31,9 +30,10 @@
                             <td>{{$key + 1}}</td>
                             <td>{{$item->title}}</td>
                             <td>{{$item->slug}}</td>
-                            <td>{{$item->type}}</td>
                             <td>{{$item->category->name}}</td>
-                            <td><img src="{{asset('upload/posts/'.$item->featured_image)}}" alt="" width="40px"></td>
+                            <td>@if($item->featured_image)
+                                <img src="{{asset('upload/posts/'.$item->featured_image)}}" alt="" width="40px">
+                            @endif</td>
                             <td>{{$item->sort_order}}</td>
                             <td>
                                 <div class="text-center actions">

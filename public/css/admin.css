@@ -8,21 +8,15 @@ body {
   vertical-align: text-bottom;
 }
 
-/*
- * Sidebar
- */
+/*------------------ Sidebar -----------------*/
 
 .sidebar {
   position: fixed;
   top: 0;
-  /* rtl:raw:
-  right: 0;
-  */
   bottom: 0;
-  /* rtl:remove */
   left: 0;
-  z-index: 100; /* Behind the navbar */
-  padding: 48px 0 0; /* Height of navbar */
+  z-index: 100; 
+  padding: 48px 0 0; 
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
 
@@ -42,7 +36,7 @@ main {
   height: calc(100vh - 48px);
   padding-top: .5rem;
   overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  overflow-y: auto;
 }
 
 .sidebar .nav-link {
@@ -69,9 +63,7 @@ main {
   text-transform: uppercase;
 }
 
-/*
- * Navbar
- */
+/*----------------- Navbar ------------------*/
 
 .navbar-brand {
   padding-top: .75rem;
@@ -111,13 +103,18 @@ main {
   user-select: none;
 }
 
+.nav-item.active a {
+  background: #dee2e6;
+  cursor: auto;
+}
+
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
       font-size: 3.5rem;
   }
 }
 
-/*----------- Table and form ---------------- */
+/*---------------- Table and form ---------------- */
 
 .form-group{
   margin-bottom: 1rem;
@@ -139,9 +136,66 @@ main {
 .table-bordered tr th:nth-child(1),
 .table-bordered tr td:nth-child(1){
   text-align: center;
-  max-width: 4rem;
+  width: 2.5rem;
 }
 .table-bordered th:last-child{
   text-align: center;
   width: 5rem;
+}
+
+span.type-2 {
+  background: #ffe082;
+  padding: 1px 6px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+span.type-1 {
+  background: #b5fad7;
+  padding: 1px 6px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+/*---------------------- Table category ----------------------*/
+#category_table th:nth-child(4) {
+  width: 11rem;
+  word-break: break-all;
+  white-space: pre-line;
+}
+#category_table th:nth-child(6),
+#category_table td:nth-child(6){
+  width: 6rem;
+  text-align: center;
+}
+#category_table th:nth-child(7), 
+#category_table td:nth-child(7){
+  width: 5rem;
+  text-align: center;
+  word-break: break-all;
+  white-space: pre-line;
+}
+
+/*---------------------- Table post ----------------------*/
+#post_table th:nth-child(2) {
+  width: 30%;
+  word-break: break-all;
+  white-space: pre-line;
+}
+#post_table th:nth-child(3) {
+  width: 30%;
+  word-break: break-all;
+  white-space: pre-line;
+}
+#post_table th:nth-child(5),
+#post_table td:nth-child(5){
+  width: 8rem;
+  text-align: center;
+}
+#post_table th:nth-child(6),
+#post_table td:nth-child(6){
+  width: 5rem;
+  text-align: center;
+  word-break: break-all;
+  white-space: pre-line;
 }

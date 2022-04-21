@@ -49,21 +49,21 @@
                 @endif
             </div>
             <div class="form-group">
-                <label for="type">Type</label>
+                <label for="type">Thuộc menu</label>
                 <select class="form-control" name="type" id="type">
                     <option value="">--- Select type ---</option>
-                    <option value="1">Type 1</option>
-                    <option value="2">Type 2</option>
+                    <option value="1" {{old('type', $category->type)=='1'? 'selected': null}}>Kiến thức trong đầu tư</option>
+                    <option value="2" {{old('type', $category->type)=='2'? 'selected': null}}>Chia sẻ</option>
                 </select>
                 @if($errors->has('type'))
                     <small class="form-text text-danger">{{ $errors->first('type') }}</small>
                 @endif
             </div>
             <div class="form-group">
-                <label for="parent">Parent</label>
+                <label for="parent">Doanh mục cha</label>
                 <select class="form-control" name="parent" id="parent">
                     <option value="">--- Select parent ---</option>
-                    @foreach($categories as $cate)
+                    @foreach($parents as $cate)
                         <option value="{{ $cate->id }}" {{ old('parent', $category->id)==$cate->id ? 'selected' : null }}>
                             {{ $cate->name }}
                         </option>

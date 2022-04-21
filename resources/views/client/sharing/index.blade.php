@@ -6,10 +6,7 @@
 @section('content')
 <main>
     <div class="container">
-        {{-- <div class="featured-image">
-            <img src="./image/photo1.png" alt="" class="img">
-        </div> --}}
-        <div class="row">
+        <div class="row main-content">
             <div class="col-md-9 post">
                 <div class="category-header d-flex align-items-center p-3 my-3 text-white rounded shadow-sm">
                     <img class="me-3" src="{{asset('image/bootstrap-logo-white.svg')}}" alt="" width="48"

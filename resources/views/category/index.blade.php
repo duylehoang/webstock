@@ -12,13 +12,13 @@
             </div>
         </div>
         <div class="table-responsive">
-            <table class="table table-striped table-bordered table-sm">
+            <table class="table table-striped table-bordered table-sm" id="category_table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Slug</th>
-                        <th scope="col">Type</th>
+                        <th scope="col">Thuộc Menu</th>
                         <th scope="col">Parent</th>
                         <th scope="col">Banner</th>
                         <th scope="col">Sort Order</th>
@@ -31,9 +31,12 @@
                             <td>{{$key + 1}}</td>
                             <td>{{$item->name}}</td>
                             <td>{{$item->slug}}</td>
-                            <td>{{$item->type}}</td>
-                            <td>{{$item->parent}}</td>
-                            <td><img src="{{asset('upload/categories/'.$item->banner)}}" alt="" width="40px"></td>
+                            <td>{!! category_type($item->type) !!}</td>
+                            <td>{{$item->parentCategory? $item->parentCategory->name: null}}</td>
+                            <td>@if($item->banner)
+                                <img src="{{asset('upload/categories/'.$item->banner)}}" alt="" width="40px">
+                                @endif
+                            </td>
                             <td>{{$item->sort_order}}</td>
                             <td>
                                 <div class="text-center actions">

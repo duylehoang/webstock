@@ -42,6 +42,11 @@ Route::prefix('admin')->group(function () {
     // Setting
     Route::get('/setting', 'SettingController@index')->name('setting.index');
     Route::post('/setting', 'SettingController@store')->name('setting.store');
+
+    // Clear cache
+    Route::get('/clear-cache', 'SettingController@clearCache')->name('setting.clear_cache');
+    Route::get('/clear-view', 'SettingController@clearView')->name('setting.clear_view');
+    Route::get('/clear-route', 'SettingController@clearRoute')->name('setting.clear_route');
 });
 
 Route::get('/', 'HomeController@index')->name('home');
@@ -53,6 +58,5 @@ Route::get('/chia-se', 'HomeController@sharing')->name('sharing');
 Route::get('/chia-se/{slug}', 'HomeController@sharedArticle')->name('sharing.article');
 
 Route::get('/category/{slug}', 'HomeController@category')->name('client.category');
-Route::get('/article/{slug}', 'HomeController@article')->name('client.article');
 
 Route::get('/lien-he', 'HomeController@contact')->name('contact');

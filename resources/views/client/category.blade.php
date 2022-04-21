@@ -6,12 +6,12 @@
 @section('content')
 <main>
     <div class="container">
-        @if($category->banner)
-            <div class="featured-image">
-                <img src="{{asset('upload/categories/'. $category->banner)}}" alt="" class="img">
-            </div>
-        @endif
-        <div class="row">
+        <div class="row main-content">
+            @if($category->banner)
+                <div class="featured-image">
+                    <img src="{{asset('upload/categories/'. $category->banner)}}" alt="" class="img">
+                </div>
+            @endif
             <div class="col-md-9 post">
                 <div class="category-header d-flex align-items-center p-3 my-3 text-white rounded shadow-sm">
                     <img class="me-3" src="{{asset('image/bootstrap-logo-white.svg')}}" alt="" width="48"
@@ -24,7 +24,7 @@
                     <div class="row">
                         @if(count($posts) > 0)
                             @foreach($posts as $key=>$post)
-                                <a href="{{route('client.article', $post->slug)}}" class="col-md-3 col-6 item">
+                                <a href="{{route('knowledge.article', $post->slug)}}" class="col-md-3 col-6 item">
                                     <div class="post-item">
                                         <img class="post-img" src="{{ load_img('upload/posts', $post->featured_image) }}"
                                             alt="{{$post->title}}">

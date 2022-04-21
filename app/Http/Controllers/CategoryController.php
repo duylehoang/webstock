@@ -19,7 +19,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $categories = Category::orderBy('sort_order')->get();
+        $categories = Category::with('parentCategory')->orderBy('sort_order')->get();
 
         return view('category.index', [
             'categories' => $categories
@@ -28,13 +28,13 @@ class CategoryController extends Controller
 
     public function create()
     {
-        $categories = Category::orderBy('sort_order')->get();
+        $parents = Category::where('parent', 0)->orderBy('sort_order')->get();
 
         $this->category->sort_order = Category::max('sort_order') + 1;
 
         return view('category.form', [
             'category'=> $this->category,
-            'categories' => $categories
+            'parents' => $parents
         ]);
     }
 
@@ -44,6 +44,7 @@ class CategoryController extends Controller
             'name' => $request->name,
             'slug' => $request->slug,
             'description' => $request->description,
+            'type'=>$request->type,
             'parent' => $request->parent? $request->parent: 0,
             'sort_order'=> $request->sort_order
         ];
@@ -82,9 +83,12 @@ class CategoryController extends Controller
             ]);
         }
 
-        $categories = Category::orderBy('sort_order')->get();
+        $parents = Category::where('parent', 0)
+            ->where('id', '!=', $id)
+            ->orderBy('sort_order')
+            ->get();
 
-        return view('category.form', compact('category', 'categories'));
+        return view('category.form', compact('category', 'parents'));
     }
 
     public function update(CategoryRequest $request, $id)
@@ -102,6 +106,7 @@ class CategoryController extends Controller
             'name' => $request->name,
             'slug' => $request->slug,
             'description' => $request->description,
+            'type'=>$request->type,
             'parent' => $request->parent? $request->parent: 0,
             'sort_order'=> $request->sort_order
         ];
@@ -142,6 +147,14 @@ class CategoryController extends Controller
             return response()->json([
                 'status'=> 'error',
                 'message'=> 'Không tìm thấy Category'
+            ]);
+        }
+
+        $count_posts = $category->posts->count();
+        if($count_posts > 0) {
+            return response()->json([
+                'status'=> 'warning',
+                'message'=> 'Catagory này đã có '. $count_posts . ' bài viết, bạn không thể xóa'
             ]);
         }
         

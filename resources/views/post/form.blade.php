@@ -49,18 +49,7 @@
                 @endif
             </div>
             <div class="form-group">
-                <label for="type">Type</label>
-                <select class="form-control" name="type" id="type">
-                    <option value="">--- Select type ---</option>
-                    <option value="1">Type 1</option>
-                    <option value="2">Type 2</option>
-                </select>
-                @if($errors->has('type'))
-                    <small class="form-text text-danger">{{ $errors->first('type') }}</small>
-                @endif
-            </div>
-            <div class="form-group">
-                <label for="category">Category</label>
+                <label for="category_id">Category</label>
                 <select class="form-control" name="category_id" id="category_id">
                     <option value="">--- Select category ---</option>
                     @foreach($categories as $cate)

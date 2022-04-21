@@ -80,21 +80,6 @@ class HomeController extends Controller
         return view('client.category', compact('category', 'posts'));
     }
 
-    public function article($slug)
-    {
-        $post = Post::with('category')->where('slug', $slug)->where('status', 1)->first();
-        if(!$post) {
-            abort(404);
-        } 
-
-        $otherPosts = Post::where('category_id', $post->category_id)
-            ->where('id', '!=', $post->id)
-            ->orderBy('sort_order')
-            ->get();
-
-        return view('client.sharing.article', compact('post', 'otherPosts'));
-    }
-
     public function contact()
     {
         return view('client.contact');

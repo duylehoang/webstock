@@ -6,13 +6,13 @@
 @section('content')
 <main>
     <div class="container">
-        @if($post->featured_image)
-            <div class="featured-image">
-                <img src="{{asset('upload/posts/'. $post->featured_image)}}" alt="" class="img">
-            </div>
-        @endif
-        <div class="row">
+        <div class="row main-content">
             <div class="col-md-9 post">
+                @if($post->featured_image)
+                    <div class="featured-image">
+                        <img src="{{asset('upload/posts/'. $post->featured_image)}}" alt="" class="img">
+                    </div>
+                @endif
                 <div class="post-header">
                     <div class="category-name">
                         <a href="{{route('client.category', $post->category->slug)}}">#{{$post->category->name}}</a>
