@@ -12,7 +12,7 @@ a {
 }
 /*------------------------ Navigation  ----------------------*/
 nav{
-    height: 70px;
+    height: 60px;
     width: 100%;
     background-color: #34485e;
     position: fixed;
@@ -20,20 +20,26 @@ nav{
     z-index: 999;
 }
 .logo{
-    font-size: 35px;
+    padding-left: 150px;
+    line-height: 60px;
+}
+.logo a {
+    font-size: 25px;
     font-weight: bold;
     color: #fff;
-    padding: 0 100px;
-    line-height: 70px;
+}
+.logo a:hover {
+    border: none;
+    transition: 0.5s;
 }
 nav ul{
     float: right;
-    margin-right: 70px;
+    margin-right: 150px;
 }
 nav li{
     display: inline-block;
     margin: 0 8px;
-    line-height: 70px;
+    line-height: 60px;
 }
 nav a{
     color: #fff;
@@ -51,7 +57,7 @@ nav a.active, nav a:hover{
 nav #icon {
     color: #fff;
     font-size: 30px;
-    line-height: 70px;
+    line-height: 60px;
     float: right;
     margin-right: 40px;
     cursor: pointer;
@@ -59,22 +65,40 @@ nav #icon {
 }
 
 .container {
-    width: 80%;
+    width: 78%;
     border-left: 1px solid #dee2e6;
     border-right: 1px solid #dee2e6;
 }
 
 /*------------------------- Body  ------------------*/
 main {
-    margin-top: 80px;
+    margin-top: 70px;
     padding-bottom: 20px;
 }
 .main-content {
-    padding: 0 1rem;
+    padding: 0 1.2rem;
+    min-height: 33rem;
 }
 .featured-image img {
     width: 100%;
     max-height: 20rem;
+}
+.post-item {
+    padding: 8px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    min-height: 16rem;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
+.post-item:hover {
+    background: #d3e6f9;
+    border-radius: 5px;
+}
+.post-item .caption {
+    color: #133769;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .post-header {
@@ -83,7 +107,6 @@ main {
 }
 
 .post-content{
-    min-height: 25rem;
     width: 98%;
 }
 .category-name {
@@ -118,6 +141,7 @@ h1.title {
 }
 .same-category {
     padding: 0 1rem;
+    margin-top: 1rem;
 }
 .same-category .title{
     text-transform: uppercase;
@@ -125,20 +149,6 @@ h1.title {
     margin-bottom: 1rem;
     text-decoration: underline;
     text-decoration-color: #318585;
-}
-.same-category .item {
-    padding: 7px;
-    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
-}
-.same-category .item:hover {
-    background-color: #b8dff9;
-}
-.same-category .post-img {
-    width: 100%;
-}
-.same-category .post-title {
-    color: black;
-    padding: 5px 0;
 }
 .ads-card {
     margin-bottom: 1.2rem;
@@ -187,7 +197,7 @@ footer {
     color: #6f42c1;
 }
 .category-header {
-    background-color: rgb(145 157 170);
+    background-image: url(../image/hinh-nen-2.jpg);
 }
 div.icon {
     width: 2rem;
@@ -198,6 +208,17 @@ div.icon {
     font-size: 18px;
     background: #919daa;
     color: #fff;
+}
+
+/*----------------- Form ------------------*/
+.form-group input {
+    font-size: 14px;
+}
+.form-group label {
+    font-size: 14px;
+}
+.form-group {
+    margin-bottom: 10px;
 }
 
 /*---------------- Popup Image ------------------*/
@@ -255,6 +276,52 @@ div.icon {
     }
 }
 
+/*---------------- Contact page -------------*/
+#contact_page input[type=text], 
+#contact_page input[type=email], 
+#contact_page textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+#contact_page input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+}
+  
+#contact_page input[type=submit]:hover {
+    background-color: #45a049;
+}
+  
+/* Style the container/contact section */
+#contact_page {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+  
+/* Create two columns that float next to eachother */
+.column {
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+    padding: 20px;
+}
+
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column, #contact_page input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
 /*---------------- Reponsive ---------------*/
 
 @media (max-width: 1048px) {
@@ -292,7 +359,7 @@ div.icon {
         width: 100%;
         height: 100vh;
         background-color: #2f3640;
-        top: 70px;
+        top: 60px;
         left: -100%;
         text-align: center;
         transition:  all 0.5s;

@@ -29,10 +29,9 @@ class SettingController extends Controller
     public function store(Request $request)
     {
         $data = $request->except(['_token']);
+
         $setting_keys = Setting::pluck('key')->toArray();
-
         $newOptions = array();
-
         foreach ($data as $key=>$value) {
             if(in_array($key, $setting_keys)) {
                Setting::where('key', $key)->update(['value'=>$value]);

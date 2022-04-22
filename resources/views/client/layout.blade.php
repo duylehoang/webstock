@@ -15,15 +15,18 @@
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
+    <!-- IziToast -->
+    <link rel="stylesheet" href="{{ asset('plugins/iziToast/iziToast.min.css') }}">
+
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 <body>
     <nav>
-        <label class="logo">CodeX</label>
+        <label class="logo"><a href="{{route('home')}}">CodeX</a></label>
         <ul>
             <li><a href="{{url('/')}}" @if(isCurrentController('home')) class="active" @endif>Home</a></li>
-            <li><a href="{{route('knowledge')}}" @if(isCurrentController('knowledge,knowledge.article')) class="active" @endif>Kiến thức trong abc tu</a></li>
+            <li><a href="{{route('knowledge')}}" @if(isCurrentController('knowledge,knowledge.article')) class="active" @endif>Kiến thức co ban</a></li>
             <li><a href="{{route('sharing')}}" @if(isCurrentController('sharing,sharing.article')) class="active" @endif>Chia sẻ</a></li>
             <li><a href="{{route('contact') }}" @if(isCurrentController('contact')) class="active" @endif>Liên hệ</a></li>
         </ul>
@@ -49,6 +52,8 @@
     <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap JS -->
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+    <!-- IziToast -->
+    <script src="{{ asset('plugins/iziToast/iziToast.min.js') }}"></script>
 
     <script src="{{asset('js/client.js')}}"></script>
     
@@ -56,8 +61,38 @@
         $(document).ready(function () {
             $('#icon').click(function () {
                 $('ul').toggleClass('show');
-            })
-        })
+            });
+
+            @if (Session::has('status'))
+                let status = "{{ Session::get('status') }}";
+                let message = "{{ Session::get('message') }}";
+                switch (status) {
+                    case "success":
+                        iziToast.success({
+                            title: "Thông báo",
+                            message: message,
+                            position: 'topRight'
+                        });
+                        break;
+                    case "warning":
+                        iziToast.warning({
+                            title: "cảnh báo",
+                            message: message,
+                            position: 'topRight'
+                        });
+                        break;
+                    case "error":
+                        iziToast.error({
+                            title: "Lỗi",
+                            message: message,
+                            position: 'topRight',
+                        });
+                        break;
+                    default:
+                        break;
+                }
+            @endif
+        });
     </script>
 </body>
 

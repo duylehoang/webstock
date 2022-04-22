@@ -39,6 +39,10 @@ Route::prefix('admin')->group(function () {
     Route::delete('/posts/{id}', 'PostController@delete')->name('post.delete');
     Route::post('/post-upload-file', 'PostController@upload_file')->name('post.upload_file');
 
+    // Contact
+    Route::get('/contact', 'ContactController@index')->name('contact.index');
+    Route::delete('/contact/{id}', 'ContactController@delete')->name('contact.delete');
+
     // Setting
     Route::get('/setting', 'SettingController@index')->name('setting.index');
     Route::post('/setting', 'SettingController@store')->name('setting.store');
@@ -60,3 +64,5 @@ Route::get('/chia-se/{slug}', 'HomeController@sharedArticle')->name('sharing.art
 Route::get('/category/{slug}', 'HomeController@category')->name('client.category');
 
 Route::get('/lien-he', 'HomeController@contact')->name('contact');
+
+Route::post('/dang-ky', 'HomeController@subscribe')->name('subscribe');

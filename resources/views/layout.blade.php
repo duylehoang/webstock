@@ -63,6 +63,11 @@
                                 Profile
                             </a>
                         </li>
+                        <li class="nav-item @if(isCurrentController('contact.index')) active @endif">
+                            <a class="nav-link" href="{{route('contact.index')}}">
+                                Contacts
+                            </a>
+                        </li>
                         <li class="nav-item @if(isCurrentController('setting.index')) active @endif">
                             <a class="nav-link" href="{{route('setting.index')}}">
                                 Setting

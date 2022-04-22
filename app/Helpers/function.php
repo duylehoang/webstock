@@ -50,3 +50,21 @@ if (! function_exists('category_type')) {
         }
     }
 }
+
+if (! function_exists('load_settings')) {
+    /**
+    * @return mixed
+    * @author Duy
+    * 
+    * Load data from Setting table
+    */
+   function load_settings()
+   {
+        $data = \App\Models\Setting::all();
+        $settings = array();
+        foreach($data as $item) {
+            $settings[$item->key] = $item->value;
+        }
+        return $settings;
+   }
+}

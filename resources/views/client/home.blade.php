@@ -8,10 +8,9 @@
     <div class="container">
         <div class="p-4 p-md-5 mb-4 text-white rounded home-banner">
             <div class="col-md-6 px-0">
-                <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
-                <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and
-                    efficiently about what’s most interesting in this post’s contents.</p>
-                <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+                <h1 class="display-4 fst-italic">{{array_key_exists('home_banner_title', $settings)? $settings['home_banner_title'] : null}}</h1>
+                <p class="lead my-3">{{array_key_exists('home_banner_description', $settings)? $settings['home_banner_description'] : null}}</p>
+                <p class="lead mb-0"><a href="{{array_key_exists('home_banner_link', $settings)? $settings['home_banner_link'] : null}}" class="text-white fw-bold">Xem thêm...</a></p>
             </div>
         </div>
         <div class="row mb-2">
@@ -49,34 +48,23 @@
         <div class="same-category">
             <div class="title">Bài viết mới nhất</div>
             <div class="row">
-                <a href="#" class="col-md-3 col-6 item">
-                    <div class="post-item">
-                        <img class="post-img" src="http://localhost/base-cms/base-cms/public/dist/img/photo1.png"
-                            alt="">
-                        <div class="post-title">Some text about me in culpa qui officia deserunt mollit anim</div>
+                @foreach ($latest_post as $post)
+                    <div class="col-md-3">
+                        <div class="thumbnail post-item">
+                            @if($post->category->type == 1) 
+                                <a href="{{route('knowledge.article', $post->slug)}}">
+                                    <img src="{{ load_img('upload/posts', $post->featured_image) }}" alt="Fjords" style="width:100%">
+                                    <div class="caption">{{$post->title}}</div>
+                                </a>
+                            @elseif($post->category->type == 2)
+                                <a href="{{route('sharing.article', $post->slug)}}">
+                                    <img src="{{ load_img('upload/posts', $post->featured_image) }}" alt="Fjords" style="width:100%">
+                                    <div class="caption">{{$post->title}}</div>
+                                </a>
+                            @endif
+                        </div>
                     </div>
-                </a>
-                <a href="#" class="col-md-3 col-6 item">
-                    <div class="post-item">
-                        <img class="post-img" src="http://localhost/base-cms/base-cms/public/dist/img/photo1.png"
-                            alt="">
-                        <div class="post-title">Some text about me in culpa qui officia deserunt mollit anim</div>
-                    </div>
-                </a>
-                <a href="#" class="col-md-3 col-6 item">
-                    <div class="post-item">
-                        <img class="post-img" src="http://localhost/base-cms/base-cms/public/dist/img/photo1.png"
-                            alt="">
-                        <div class="post-title">Some text about me in culpa qui officia deserunt mollit anim</div>
-                    </div>
-                </a>
-                <a href="#" class="col-md-3 col-6 item">
-                    <div class="post-item">
-                        <img class="post-img" src="http://localhost/base-cms/base-cms/public/dist/img/photo1.png"
-                            alt="">
-                        <div class="post-title">Some text about me in culpa qui officia deserunt mollit anim</div>
-                    </div>
-                </a>
+                @endforeach
             </div>
         </div>
     </div>

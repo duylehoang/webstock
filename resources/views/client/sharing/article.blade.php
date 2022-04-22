@@ -26,36 +26,30 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="ads-card">
-                    <div class="ads-title"> 
-                        Liên hệ khách hàng
-                    </div>
-                    <div class="ads-content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum molestias incidunt consequatur aut eaque sed
-                    </div>
-                </div>
-                <div class="ads-card">
-                    <div class="ads-title"> 
-                        Liên hệ khách hàng
-                    </div>
-                    <div class="ads-content">
-                        oluptates excepturi! Illo, ipsa a necessitatibus cum veniam, laudantium deleniti maxime at dolore unde mollitia?
-                    </div>
-                </div>
+                @include('client.components.fanpage')
+                @include('client.components.contact_form')
             </div>
         </div>
         @if(count($otherPosts) > 0)
             <div class="same-category">
                 <div class="title">Bài viết cùng chuyên mục</div>
                 <div class="row">
-                    @foreach ($otherPosts as $item)
-                        <a href="{{ route('sharing.article', $item->slug) }}" class="col-md-3 col-6 item">
-                            <div class="post-item">
-                                <img class="post-img" src="{{ load_img('upload/posts', $item->featured_image) }}" alt="{{ $item->title }}">
-                                <div class="post-title">{{$item->title}}</div>
-                            </div>
-                        </a>                    
-                    @endforeach
+                    <div class="col-md-9">
+                        <div class="row">
+                            @if(count($otherPosts) > 0)
+                                @foreach($otherPosts as $item)
+                                    <div class="col-md-4">
+                                        <div class="thumbnail post-item">
+                                            <a href="{{ route('sharing.article', $item->slug) }}">
+                                                <img src="{{ load_img('upload/posts', $item->featured_image) }}" alt="{{ $item->title }}" style="width:100%">
+                                                <div class="caption">{{$item->title}}</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
                 </div>
             </div>
         @endif 

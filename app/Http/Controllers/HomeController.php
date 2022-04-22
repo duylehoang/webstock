@@ -5,13 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Post;
-use PhpParser\Node\Expr\AssignOp\Pow;
+use App\Models\Contact;
 
 class HomeController extends Controller
 {
     public function index() 
     {
-        return view('client.home');
+        $settings = load_settings();
+
+        $latest_post = Post::with('category')
+            ->where('status', 1)
+            ->orderBy('created_at', 'DESC')
+            ->take(8)
+            ->get();
+            
+        return view('client.home', compact('settings', 'latest_post'));
     }
 
     public function knowledge()
@@ -83,5 +91,24 @@ class HomeController extends Controller
     public function contact()
     {
         return view('client.contact');
+    }
+
+    public function subscribe(Request $request) 
+    {
+        // nhận tối đa 5000 liên hệ
+        if(Contact::count() > 5000) {
+            return false;
+        }
+
+        $contact = new Contact;
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->content = $request->content;
+        $contact->save();
+
+        return redirect()->back()->with([
+            'status'=> 'success',
+            'message' => 'Đăng ký thành công'
+        ]);
     }
 }
