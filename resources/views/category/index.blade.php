@@ -50,6 +50,7 @@
                     @endforeach
                 </tbody>
             </table>
+            {{$categories->links()}}
         </div>
     </main>
 @endsection
