@@ -20,7 +20,7 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::with('category')->orderBy('sort_order')->get();
+        $posts = Post::with('category')->orderBy('sort_order')->paginate(20);
         return view('post.index', compact('posts'));
     }
 

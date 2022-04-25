@@ -19,7 +19,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $categories = Category::with('parentCategory')->orderBy('sort_order')->get();
+        $categories = Category::with('parentCategory')->orderBy('sort_order')->paginate(20);
 
         return view('category.index', [
             'categories' => $categories
